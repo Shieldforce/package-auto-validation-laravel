@@ -18,9 +18,10 @@ composer require shieldforce/package-auto-validation-laravel
 \ShieldForce\AutoValidation\Providers\AutoValidationServiceProvider::class,
 ```
 
-- Adicionando o Trait na Classe do Model:
+- Adicionando o Trait e Request na Classe do Model:
 ```
 use ShieldForce\AutoValidation\Traits\TraitStartInterception;
+use Illuminate\Http\Request;
 ```
 
 - Dê um use no Trait dentro da Classe do Model:
