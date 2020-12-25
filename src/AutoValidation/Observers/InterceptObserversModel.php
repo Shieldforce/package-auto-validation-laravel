@@ -43,10 +43,10 @@
             if($this->request->routeType=="web")
             {
                 return back()
-                    ->throwResponse()
                     ->withErrors($validator)
                     ->withInput()
-                    ->with("errorValidation", $validator->errors());
+                    ->with("errorValidation", $validator->errors())
+                    ->throwResponse();
             }
             return true;
         }
