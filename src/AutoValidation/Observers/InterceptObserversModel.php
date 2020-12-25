@@ -35,16 +35,17 @@
                     'code'       => 301,
                     'status'     => "error",
                     'message'    => "Validação de Campos não passou!!",
-                    'data'       => $validator->errors(),
+                    'data'       => [
+                        "errorValidation" => $validator->errors()
+                    ],
                 ], 301)->throwResponse();
             }
             if($this->request->routeType=="web")
             {
-                return Error::generic(
-                    $validator,
-                    messageErrors(4000, "Validação"),
-                    "web"
-                );
+                return back()
+                    ->throwResponse()
+                    ->withInput()
+                    ->with("errorValidation", $validator->errors());
             }
             return true;
         }
@@ -54,7 +55,7 @@
          * @param $method
          * @return bool|\Illuminate\Http\RedirectResponse|void
          */
-        public function validationFields($model, $method, $routeType)
+        public function validationFields($model, $method, Request $request)
         {
             if(isset($model::$rules[$method]) &&  isset($this->request) && $this->request!=[])
             {
@@ -73,7 +74,7 @@
          * @param $method
          * @return bool|\Illuminate\Http\RedirectResponse|void
          */
-        public function validationFieldsCustom(Model $model, $method, $routeType)
+        public function validationFieldsCustom(Model $model, $method, Request $request)
         {
             if(isset($model::rulesCustom($this->request)[$method]) &&  isset($this->request) && $this->request!=[])
             {
@@ -92,15 +93,14 @@
          */
         public function creating(Model $model)
         {
-            $routeType = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-
-
-            dd($routeType);
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("teste", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -109,11 +109,14 @@
          */
         public function created(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -122,15 +125,14 @@
          */
         public function saving(Model $model)
         {
-            $routeType = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-
-            dd($routeType);
-
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -139,11 +141,14 @@
          */
         public function saved(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -152,12 +157,14 @@
          */
         public function updating(Model $model)
         {
-
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -166,11 +173,14 @@
          */
         public function updated(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -179,11 +189,14 @@
          */
         public function retrieved(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -192,11 +205,14 @@
          */
         public function deleting(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -205,11 +221,14 @@
          */
         public function deleted(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -218,11 +237,14 @@
          */
         public function restoring(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
         /**
@@ -231,11 +253,14 @@
          */
         public function restored(Model $model)
         {
+            $request = $model::rulesCustom($this->request)["request"];
+            $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+            $webExist===false ? $request["routeType"]="web" : $request["routeType"]="api";
             if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
             {
-                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+                return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $routeType);
+            return $this->validationFields($model, __FUNCTION__, $request);
         }
 
     }

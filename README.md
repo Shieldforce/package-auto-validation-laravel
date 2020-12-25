@@ -13,6 +13,11 @@ Neste repositório está o pacote de validação automática!!
 composer install
 ```
 
+- Adicionando Provider ao arquivo config/app.php:
+```
+\ShieldForce\AutoValidation\Providers\AutoValidationServiceProvider::class,
+```
+
 ## Equipe
 
 Alexandre Ferreira do Nascimento
