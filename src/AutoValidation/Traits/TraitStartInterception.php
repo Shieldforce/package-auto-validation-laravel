@@ -2,15 +2,13 @@
 
     namespace ShieldForce\AutoValidation\Traits;
 
+    use Illuminate\Database\Eloquent\Model;
+    use ShieldForce\AutoValidation\Observers\InterceptObserversModel;
+
     trait TraitStartInterception
     {
-        protected static function boot()
+        public function __construct(Model $model)
         {
-            dd("boot");
-        }
-
-        public function __construct()
-        {
-            dd("construct");
+            $model::observe(new InterceptObserversModel);
         }
     }
