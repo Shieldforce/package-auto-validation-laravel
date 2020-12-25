@@ -10,7 +10,7 @@ Neste repositório está o pacote de validação automática!!
 
 - Instruções de Instalação: 
 ```
-composer install
+composer require shieldforce/package-auto-validation-laravel
 ```
 
 - Adicionando Provider ao arquivo config/app.php:
