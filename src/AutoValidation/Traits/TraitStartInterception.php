@@ -1,6 +1,6 @@
 <?php
 
-    namespace ShielfForce\AutoValidation\Traits;
+    namespace ShieldForce\AutoValidation\Traits;
 
     trait TraitStartInterception
     {
