@@ -17,7 +17,7 @@
             "src/Helpers/FunctionsGlobals.php"
         ],
         "psr-4": {
-            "ShieldForce\\AutoValidation\\": "src/AutoValidation"
+            "AutoValidation\\": "src/AutoValidation"
         }
     }
 }
