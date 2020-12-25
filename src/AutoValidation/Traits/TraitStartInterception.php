@@ -7,8 +7,13 @@
 
     trait TraitStartInterception
     {
-        public function __construct()
+        /**
+         * Method boot is Model
+         * Start Validation (self::observe(new ObserverValidation))
+         */
+        protected static function boot()
         {
-            Model::observe(new InterceptObserversModel);
+            parent::boot();
+            self::observe(new InterceptObserversModel);
         }
     }

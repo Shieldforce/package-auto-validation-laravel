@@ -3,12 +3,239 @@
     namespace ShieldForce\AutoValidation\Observers;
 
     use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Validator;
 
     class InterceptObserversModel
     {
-        public function __construct(Model $model)
+        /**
+         * @var Request
+         */
+        protected $request;
+
+        /**
+         * InterceptObserversModel constructor.
+         * @param Request|null $request
+         */
+        public function __construct(Request $request=null)
         {
-            dd($model);
+            $this->request = $request;
+        }
+
+        /**
+         * @param $validator
+         * @param Request $request
+         * @return bool|\Illuminate\Http\RedirectResponse|void
+         */
+        public function returnType($validator)
+        {
+            if($this->request->routeType=="api")
+            {
+                return response()->json([
+                    'code'       => 301,
+                    'status'     => "error",
+                    'message'    => "Validação de Campos não passou!!",
+                    'data'       => $validator->errors(),
+                ], 301)->throwResponse();
+            }
+            if($this->request->routeType=="web")
+            {
+                return Error::generic(
+                    $validator,
+                    messageErrors(4000, "Validação"),
+                    "web"
+                );
+            }
+            return true;
+        }
+
+        /**
+         * @param $model
+         * @param $method
+         * @return bool|\Illuminate\Http\RedirectResponse|void
+         */
+        public function validationFields($model, $method, $routeType)
+        {
+            if(isset($model::$rules[$method]) &&  isset($this->request) && $this->request!=[])
+            {
+                $rules = [];
+                $validator = Validator::make($this->request->all(), $model::$rules[$method]);
+                if($validator->fails())
+                {
+                    return $this->returnType($validator);
+                }
+            }
+            return true;
+        }
+
+        /**
+         * @param Model $model
+         * @param $method
+         * @return bool|\Illuminate\Http\RedirectResponse|void
+         */
+        public function validationFieldsCustom(Model $model, $method, $routeType)
+        {
+            if(isset($model::rulesCustom($this->request)[$method]) &&  isset($this->request) && $this->request!=[])
+            {
+                $validator = Validator::make($this->request->all(), $model::rulesCustom($this->request)[$method]);
+                if($validator->fails())
+                {
+                    return $this->returnType($validator);
+                }
+            }
+            return true;
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function creating(Model $model)
+        {
+            $routeType = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+
+
+            dd($routeType);
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function created(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function saving(Model $model)
+        {
+            $routeType = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
+
+            dd($routeType);
+
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function saved(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function updating(Model $model)
+        {
+
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function updated(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function retrieved(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function deleting(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function deleted(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function restoring(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
+        }
+
+        /**
+         * @param $class
+         * @return bool|void|Mixed
+         */
+        public function restored(Model $model)
+        {
+            if(method_exists($model, "rulesCustom") && isset($model::rulesCustom($this->request)[__FUNCTION__]))
+            {
+                return $this->validationFieldsCustom($model, __FUNCTION__, $routeType);
+            }
+            return $this->validationFields($model, __FUNCTION__, $routeType);
         }
 
     }
