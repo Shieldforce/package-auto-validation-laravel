@@ -44,27 +44,9 @@
             {
                 return back()
                     ->throwResponse()
+                    ->withErrors($validator)
                     ->withInput()
                     ->with("errorValidation", $validator->errors());
-            }
-            return true;
-        }
-
-        /**
-         * @param $model
-         * @param $method
-         * @return bool|\Illuminate\Http\RedirectResponse|void
-         */
-        public function validationFields($model, $method, Request $request)
-        {
-            if(isset($model::$rules[$method]) &&  isset($this->request) && $this->request!=[])
-            {
-                $rules = [];
-                $validator = Validator::make($this->request->all(), $model::$rules[$method]);
-                if($validator->fails())
-                {
-                    return $this->returnType($validator);
-                }
             }
             return true;
         }
@@ -78,7 +60,11 @@
         {
             if(isset($model::rulesCustom($this->request)[$method]) &&  isset($this->request) && $this->request!=[])
             {
-                $validator = Validator::make($this->request->all(), $model::rulesCustom($this->request)[$method]);
+                $validator = Validator::make(
+                    $this->request->all(),
+                    $model::rulesCustom($this->request)[$method]["validations"] ?? [],
+                    $model::rulesCustom($this->request)[$method]["messages"] ?? []
+                );
                 if($validator->fails())
                 {
                     return $this->returnType($validator);
@@ -100,7 +86,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -116,7 +102,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -132,7 +118,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -148,7 +134,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -164,7 +150,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -180,7 +166,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -196,7 +182,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -212,7 +198,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -228,7 +214,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -244,7 +230,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
         /**
@@ -260,7 +246,7 @@
             {
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
-            return $this->validationFields($model, __FUNCTION__, $request);
+            return true;
         }
 
     }
