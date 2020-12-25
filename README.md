@@ -166,6 +166,30 @@ public static function rulesCustom(Request $request)
 }
 ```
 
+##### Publicar Arquivos JS e CSS - Rode o comando
+````
+php artisan vendor:publish --tag=feedback --force
+````
+
+##### No caso do retorno de erros de validação, se a requisição for feita em php o retorno é esse:
+
+    return back()
+        ->with('errorValidation', 'Validação de Campos não passou!!')
+        ->withErrors($validator)
+        ->withInput()
+        ->throwResponse();
+        
+##### No caso do retorno de erros de validação, se a requisição for feita em javascript o retorno é esse (Neste caso você mesmo fará o tratamento de erros no retorno do seu AJAX, etc..):
+
+    return response()->json([
+        'code'       => 301,
+        'status'     => "error",
+        'message'    => "Validação de Campos não passou!!",
+        'data'       => [
+            "errorValidation" => $validator->errors()
+        ],
+    ], 301)->throwResponse();
+
 ###### No arquivo resources/lang/pt_BR/validation.php podemos configurar as mensagens de retorno, trocar nomes de atributos, etc...:
 
     return [
@@ -292,31 +316,6 @@ public static function rulesCustom(Request $request)
             ],
     
     ];
-    
-    
-##### Publicar Arquivos JS e CSS - Rode o comando
-````
-php artisan vendor:publish --tag=feedback --force
-````
-
-##### No caso do retorno de erros de validação, se a requisição for feita em php o retorno é esse:
-
-    return back()
-        ->with('errorValidation', 'Validação de Campos não passou!!')
-        ->withErrors($validator)
-        ->withInput()
-        ->throwResponse();
-        
-##### No caso do retorno de erros de validação, se a requisição for feita em javascript o retorno é esse (Neste caso você mesmo fará o tratamento de erros no retorno do seu AJAX, etc..):
-
-    return response()->json([
-        'code'       => 301,
-        'status'     => "error",
-        'message'    => "Validação de Campos não passou!!",
-        'data'       => [
-            "errorValidation" => $validator->errors()
-        ],
-    ], 301)->throwResponse();
 
 ## Equipe
 
