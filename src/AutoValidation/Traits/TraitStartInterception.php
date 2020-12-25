@@ -7,8 +7,8 @@
 
     trait TraitStartInterception
     {
-        public function __construct(Model $model)
+        public function __construct()
         {
-            $model::observe(new InterceptObserversModel);
+            Model::observe(new InterceptObserversModel);
         }
     }
