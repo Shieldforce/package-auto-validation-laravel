@@ -4,8 +4,13 @@
 
     trait TraitStartInterception
     {
+        protected static function boot()
+        {
+            dd("boot");
+        }
+
         public function __construct()
         {
-            dd("trait");
+            dd("construct");
         }
     }
