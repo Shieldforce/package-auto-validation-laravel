@@ -39,18 +39,128 @@ public static function rulesCustom(Request $request)
             "creating"   =>
                 [
                     "validations" =>
-                    [
-                        "first_name"    => ["required", "string", "max:50"],
-                        "last_name"     => ["required", "string", "max:50"],
-                        "email"         => ["required", "string", "email", "max:100", "unique:users"],
-                        "password"      => ["required", "string", "min:4", "confirmed"],
-                    ],
+                        [
+                            "first_name"    => ["required", "string", "max:50"],
+                            "last_name"     => ["required", "string", "max:50"],
+                            "email"         => ["required", "string", "email", "max:100", "unique:users"],
+                            "password"      => ["required", "string", "min:4", "confirmed"],
+                        ],
                     "messages" =>
                         [
                             "first_name.required" => "Primeiro nome é obritatório",
                             "last_name.required"  => ":attribute nome é obritatório",
                         ]
-                ]
+                ],
+            "created"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "saved"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "salving"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "updated"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "updating"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "retrieved"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "deleted"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "deleting"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "restored"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
+            "restoring"   =>
+                [
+                    "validations" =>
+                        [
+                            
+                        ],
+                    "messages" =>
+                        [
+                            
+                        ]
+                ],
         ];
 }
 ```
