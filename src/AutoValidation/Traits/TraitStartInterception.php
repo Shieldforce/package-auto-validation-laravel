@@ -1,5 +1,6 @@
 <?php
 
+    namespace ShielfForce\AutoValidation\Traits;
 
     trait TraitStartInterception
     {
