@@ -169,9 +169,9 @@ public static function rulesCustom(Request $request)
 ###### Tratamento na View - Adicione este trecho de código em algum lugar do seu código (Lembrando que é preciso ter as libs jquery e bootstrap para que funcione perfeitamente):
 
     {{-- Include Toast CSS and JS --}}
-    <link rel="stylesheet" href="/vendor/shieldforce/life-packagist-laravel/public/plugins/toast/toast.css">
-    <script src="/vendor/shieldforce/life-packagist-laravel/public/plugins/toast/toast.js"></script>
-    <script src="/vendor/shieldforce/life-packagist-laravel/public/js/toast.adapters.js"></script>
+    <link rel="stylesheet" href="/vendor/shieldforce/package-auto-validation-laravel/public/plugins/toast/toast.css">
+    <script src="/vendor/shieldforce/package-auto-validation-laravel/public/plugins/toast/toast.js"></script>
+    <script src="/vendor/shieldforce/package-auto-validation-laravel/public/js/toast.adapters.js"></script>
     
     @if (count($errors) > 0)
     	<script>
