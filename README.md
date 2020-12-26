@@ -8,6 +8,11 @@
 
 Neste repositório está o pacote de validação automática!!
 
+- Link do Pacote : 
+```
+https://packagist.org/packages/shieldforce/package-auto-validation-laravel
+```
+
 - Instruções de Instalação: 
 ```
 composer require shieldforce/package-auto-validation-laravel
