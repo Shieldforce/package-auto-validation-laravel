@@ -83,7 +83,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -104,7 +104,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -125,7 +125,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -146,7 +146,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -167,7 +167,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -188,7 +188,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -209,7 +209,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -230,7 +230,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -251,7 +251,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -272,7 +272,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -293,7 +293,7 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()->middleware()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
