@@ -34,6 +34,6 @@ class AutoValidationServiceProvider extends ServiceProvider
         $this->publishes([
             base_path().DIRECTORY_SEPARATOR."vendor".DIRECTORY_SEPARATOR."shieldforce".DIRECTORY_SEPARATOR."package-auto-validation-laravel".DIRECTORY_SEPARATOR."public".DIRECTORY_SEPARATOR.""
             => public_path(DIRECTORY_SEPARATOR."vendor".DIRECTORY_SEPARATOR."shieldforce".DIRECTORY_SEPARATOR."package-auto-validation-laravel".DIRECTORY_SEPARATOR."public".DIRECTORY_SEPARATOR.""),
-        ], 'feedback');
+        ], 'public');
     }
 }
