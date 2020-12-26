@@ -191,7 +191,7 @@ public static function rulesCustom(Request $request)
 
 ##### Publicar Arquivos JS e CSS - Rode o comando
 ````
-php artisan vendor:publish --tag=feedback --force
+php artisan vendor:publish --tag=public --force
 ````
 
 ##### No caso do retorno de erros de validação, se a requisição for feita em php o retorno é esse:
