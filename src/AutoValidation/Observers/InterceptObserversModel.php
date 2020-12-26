@@ -32,13 +32,13 @@
             if($this->request->routeType=="api")
             {
                 return response()->json([
-                    'code'       => 407,
+                    'code'       => 301,
                     'status'     => "error",
                     'message'    => "Validação de Campos não passou!!",
                     'data'       => [
                         "errorValidation" => $validator->errors()
                     ],
-                ], 407)->throwResponse();
+                ], 301)->throwResponse();
             }
             if($this->request->routeType=="web")
             {
