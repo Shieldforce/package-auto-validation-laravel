@@ -86,9 +86,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -107,9 +104,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -128,9 +122,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -149,9 +140,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -170,9 +158,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -191,9 +176,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -212,9 +194,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -233,9 +212,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -254,9 +230,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -275,9 +248,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -296,9 +266,6 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
-                $request = $model::rulesCustom($this->request)["request"];
-                $webExist = array_search("web", $model::rulesCustom($this->request)["request"]->route()->middleware());
-                $webExist===false && $model::rulesCustom($this->request)["request"]->ajax()==false ? $request["routeType"]="web" : $request["routeType"]="api";
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
