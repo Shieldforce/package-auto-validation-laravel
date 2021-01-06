@@ -86,6 +86,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -104,6 +105,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -122,6 +124,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -140,6 +143,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -158,6 +162,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -176,6 +181,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -194,6 +200,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -212,6 +219,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -230,6 +238,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -248,6 +257,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
@@ -266,6 +276,7 @@
                 $model::rulesCustom($this->request)["request"]->route()!=null
             )
             {
+                $request = $model::rulesCustom($this->request)["request"];
                 return $this->validationFieldsCustom($model, __FUNCTION__, $request);
             }
             return true;
