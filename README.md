@@ -246,6 +246,12 @@ php artisan vendor:publish --tag=public --force
             ],
     
     ];
+    
+    
+- Exceção - Caso não queira validar um requisição especifica passe no request:
+```
+$request["not_validation"] === "yes";
+```
 
 ## Equipe
 
