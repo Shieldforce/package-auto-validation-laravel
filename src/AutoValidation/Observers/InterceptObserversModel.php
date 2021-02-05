@@ -83,7 +83,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -102,7 +103,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -121,7 +123,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -140,7 +143,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -159,7 +163,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -178,7 +183,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -197,7 +203,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -216,7 +223,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -235,7 +243,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -254,7 +263,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
@@ -273,7 +283,8 @@
             (
                 method_exists($model, "rulesCustom") &&
                 isset($model::rulesCustom($this->request)[__FUNCTION__]) &&
-                $model::rulesCustom($this->request)["request"]->route()!=null
+                $model::rulesCustom($this->request)["request"]->route()!=null &&
+                !isset($model::rulesCustom($this->request)["request"]->not_validation)
             )
             {
                 $request = $model::rulesCustom($this->request)["request"];
